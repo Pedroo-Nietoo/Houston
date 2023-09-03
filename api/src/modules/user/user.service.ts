@@ -55,7 +55,12 @@ export class UserService {
               id: true,
             },
           },
-        }
+          habits: {
+            select: {
+              id: true,
+            },
+          },
+        },
       });
     } else if (page == 1) {
       return this.prisma.user.findMany({

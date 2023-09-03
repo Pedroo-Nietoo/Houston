@@ -19,16 +19,26 @@ model User {
   password   String
   isManager  Boolean    @default(false)
   activities Activity[]
+  habits     Habit[]
 
   @@map("user")
 }
 
 model Activity {
-  id           String  @id @default(uuid())
-  title        String
-  content      String
-  tag          String
-  completed    Boolean @default(false)
-  User         User?   @relation(fields: [userId], references: [id])
-  userId       String?
+  id        String  @id @default(uuid())
+  title     String  @unique
+  content   String
+  tag       String
+  completed Boolean @default(false)
+  User      User?   @relation(fields: [userId], references: [id])
+  userId    String?
+}
+
+model Habit {
+  id        String   @id @default(uuid())
+  title     String   @unique
+  content   String
+  createdAt DateTime @default(now())
+  User      User?    @relation(fields: [userId], references: [id])
+  userId    String?
 }

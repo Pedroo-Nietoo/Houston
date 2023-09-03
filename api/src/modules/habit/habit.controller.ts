@@ -8,27 +8,27 @@ import {
   Param,
   Delete,
 } from '@nestjs/common';
-import { ActivityService } from './activity.service';
-import { CreateActivityDto } from './dto/create-activity.dto';
-import { UpdateActivityDto } from './dto/update-activity.dto';
+import { HabitService } from './habit.service';
+import { CreateHabitDto } from './dto/create-habit.dto';
+import { UpdateHabitDto } from './dto/update-habit.dto';
 import { ApiBadRequestResponse, ApiConflictResponse, ApiCreatedResponse, ApiNotFoundResponse, ApiOkResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
 import { SwaggerBadRequestResponse } from '../helpers/bad-request-response';
 import { SwaggerConflictResponse } from '../helpers/conflict-response';
 import { SwaggerNotFoundResponse } from '../helpers/not-found-response';
 
-@ApiTags('Atividade')
-@Controller('activity')
-export class ActivityController {
-  constructor(private readonly activityService: ActivityService) { }
+@ApiTags('Hábito')
+@Controller('habit')
+export class HabitController {
+  constructor(private readonly habitService: HabitService) { }
 
   @ApiOperation({
-    summary: 'Cria uma atividade',
-    description: 'Cria uma atividade na plataforma',
+    summary: 'Cria um hábito',
+    description: 'Cria uma hábito na plataforma',
   })
-  @ApiCreatedResponse({ status: 201, description: 'Atividade criada' })
+  @ApiCreatedResponse({ status: 201, description: 'Hábito criado' })
   @ApiConflictResponse({
     status: 409,
-    description: 'Atividade com mesmo título já existe',
+    description: 'Hábito com mesmo título já existe',
     type: SwaggerConflictResponse,
   })
   @ApiBadRequestResponse({
@@ -37,15 +37,15 @@ export class ActivityController {
     type: SwaggerBadRequestResponse,
   })
   @Post('create')
-  create(@Body() createActivityDto: CreateActivityDto) {
-    return this.activityService.create(createActivityDto);
+  create(@Body() createHabitDto: CreateHabitDto) {
+    return this.habitService.create(createHabitDto);
   }
 
   @ApiOperation({
-    summary: 'Lista todas as Atividades',
-    description: 'Lista todas as atividades por página',
+    summary: 'Lista todos os hábitos',
+    description: 'Lista todos os hábitos por página',
   })
-  @ApiOkResponse({ status: 200, description: 'Atividades listadas' })
+  @ApiOkResponse({ status: 200, description: 'Hábitos listados' })
   @ApiBadRequestResponse({
     status: 400,
     description: 'Requisição inválida',
@@ -53,21 +53,21 @@ export class ActivityController {
   })
   @Get('findAll/:page')
   findAll(@Param('page') page: number) {
-    return this.activityService.findAll(page);
+    return this.habitService.findAll(page);
   }
 
   @ApiOperation({
-    summary: 'Lista uma atividade específica',
+    summary: 'Lista um hábito específico',
     description:
-      'Lista as informações de uma atividade específica com base no id',
+      'Lista as informações de um hábito específico com base no id',
   })
   @ApiOkResponse({
     status: 200,
-    description: 'Informações da atividade listadas',
+    description: 'Informações do hábito listadas',
   })
   @ApiNotFoundResponse({
     status: 404,
-    description: 'Atividade não encontrada',
+    description: 'Hábito não encontrado',
     type: SwaggerNotFoundResponse,
   })
   @ApiBadRequestResponse({
@@ -77,25 +77,25 @@ export class ActivityController {
   })
   @Get('findOne/:id')
   findOne(@Param('id') id: string) {
-    return this.activityService.findOne(id);
+    return this.habitService.findOne(id);
   }
 
   @ApiOperation({
-    summary: 'Atualiza as informações de uma atividade',
-    description: 'Atualiza as informações da atividade com base no id',
+    summary: 'Atualiza as informações de um hábito',
+    description: 'Atualiza as informações do hábito com base no id',
   })
   @ApiOkResponse({
     status: 200,
-    description: 'Informações da atividade atualizadas',
+    description: 'Informações do hábito atualizadas',
   })
   @ApiNotFoundResponse({
     status: 404,
-    description: 'Atividade não encontrada',
+    description: 'Hábito não encontrado',
     type: SwaggerNotFoundResponse,
   })
   @ApiConflictResponse({
     status: 409,
-    description: 'Atividade com mesmo título já existe',
+    description: 'Hábito com mesmo título já existe',
     type: SwaggerConflictResponse,
   })
   @ApiBadRequestResponse({
@@ -104,19 +104,19 @@ export class ActivityController {
     type: SwaggerBadRequestResponse,
   })
   @Patch('update/:id')
-  update(@Param('id') id: string, @Body() updateActivityDto: UpdateActivityDto) {
-    return this.activityService.update(id, updateActivityDto);
+  update(@Param('id') id: string, @Body() updateHabitDto: UpdateHabitDto) {
+    return this.habitService.update(id, updateHabitDto);
   }
 
   @ApiOperation({
-    summary: 'Remove uma atividade',
+    summary: 'Remove um hábito',
     description:
-      'Remove uma atividade do sistema ao passar o id da mesma',
+      'Remove um hábito do sistema ao passar o id do mesmo',
   })
-  @ApiOkResponse({ status: 200, description: 'Atividade removida' })
+  @ApiOkResponse({ status: 200, description: 'Hábito removido' })
   @ApiNotFoundResponse({
     status: 404,
-    description: 'Atividade não encontrada',
+    description: 'Hábito não encontrado',
     type: SwaggerNotFoundResponse,
   })
   @ApiBadRequestResponse({
@@ -126,6 +126,6 @@ export class ActivityController {
   })
   @Delete('remove/:id')
   remove(@Param('id') id: string) {
-    return this.activityService.remove(id);
+    return this.habitService.remove(id);
   }
 }
