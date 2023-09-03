@@ -25,6 +25,10 @@ async function bootstrap() {
       description: 'Saiba mais',
       url: 'http://sua-url-de-saiba-mais',
     })
+    .addTag('Hábito', 'Tudo sobre os hábitos', {
+      description: 'Saiba mais',
+      url: 'http://sua-url-de-saiba-mais',
+    })
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
