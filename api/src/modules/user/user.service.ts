@@ -114,6 +114,11 @@ export class UserService {
             id: true,
           },
         },
+        habits: {
+          select: {
+            id: true,
+          },
+        },
       },
     });
 
