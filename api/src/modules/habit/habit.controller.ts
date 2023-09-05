@@ -7,11 +7,12 @@ import {
   Patch,
   Param,
   Delete,
+  ParseUUIDPipe,
 } from '@nestjs/common';
 import { HabitService } from './habit.service';
 import { CreateHabitDto } from './dto/create-habit.dto';
 import { UpdateHabitDto } from './dto/update-habit.dto';
-import { ApiBadRequestResponse, ApiConflictResponse, ApiCreatedResponse, ApiNotFoundResponse, ApiOkResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
+import { ApiBadRequestResponse, ApiConflictResponse, ApiCreatedResponse, ApiNotFoundResponse, ApiOkResponse, ApiOperation, ApiParam, ApiTags } from '@nestjs/swagger';
 import { SwaggerBadRequestResponse } from '../helpers/bad-request-response';
 import { SwaggerConflictResponse } from '../helpers/conflict-response';
 import { SwaggerNotFoundResponse } from '../helpers/not-found-response';
@@ -45,6 +46,7 @@ export class HabitController {
     summary: 'Lista todos os hábitos',
     description: 'Lista todos os hábitos por página',
   })
+  @ApiParam({ name: 'page', schema: { default: 1 } })
   @ApiOkResponse({ status: 200, description: 'Hábitos listados' })
   @ApiBadRequestResponse({
     status: 400,
@@ -76,7 +78,7 @@ export class HabitController {
     type: SwaggerBadRequestResponse,
   })
   @Get('findOne/:id')
-  findOne(@Param('id') id: string) {
+  findOne(@Param('id', new ParseUUIDPipe()) id: string) {
     return this.habitService.findOne(id);
   }
 
@@ -104,7 +106,7 @@ export class HabitController {
     type: SwaggerBadRequestResponse,
   })
   @Patch('update/:id')
-  update(@Param('id') id: string, @Body() updateHabitDto: UpdateHabitDto) {
+  update(@Param('id', new ParseUUIDPipe()) id: string, @Body() updateHabitDto: UpdateHabitDto) {
     return this.habitService.update(id, updateHabitDto);
   }
 
@@ -125,7 +127,7 @@ export class HabitController {
     type: SwaggerBadRequestResponse,
   })
   @Delete('remove/:id')
-  remove(@Param('id') id: string) {
+  remove(@Param('id', new ParseUUIDPipe()) id: string) {
     return this.habitService.remove(id);
   }
 }

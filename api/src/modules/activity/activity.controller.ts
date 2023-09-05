@@ -7,11 +7,12 @@ import {
   Patch,
   Param,
   Delete,
+  ParseUUIDPipe,
 } from '@nestjs/common';
 import { ActivityService } from './activity.service';
 import { CreateActivityDto } from './dto/create-activity.dto';
 import { UpdateActivityDto } from './dto/update-activity.dto';
-import { ApiBadRequestResponse, ApiConflictResponse, ApiCreatedResponse, ApiNotFoundResponse, ApiOkResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
+import { ApiBadRequestResponse, ApiConflictResponse, ApiCreatedResponse, ApiNotFoundResponse, ApiOkResponse, ApiOperation, ApiParam, ApiTags } from '@nestjs/swagger';
 import { SwaggerBadRequestResponse } from '../helpers/bad-request-response';
 import { SwaggerConflictResponse } from '../helpers/conflict-response';
 import { SwaggerNotFoundResponse } from '../helpers/not-found-response';
@@ -45,6 +46,7 @@ export class ActivityController {
     summary: 'Lista todas as Atividades',
     description: 'Lista todas as atividades por página',
   })
+  @ApiParam({ name: 'page', schema: { default: 1 } })
   @ApiOkResponse({ status: 200, description: 'Atividades listadas' })
   @ApiBadRequestResponse({
     status: 400,
@@ -76,7 +78,7 @@ export class ActivityController {
     type: SwaggerBadRequestResponse,
   })
   @Get('findOne/:id')
-  findOne(@Param('id') id: string) {
+  findOne(@Param('id', new ParseUUIDPipe()) id: string) {
     return this.activityService.findOne(id);
   }
 
@@ -104,7 +106,7 @@ export class ActivityController {
     type: SwaggerBadRequestResponse,
   })
   @Patch('update/:id')
-  update(@Param('id') id: string, @Body() updateActivityDto: UpdateActivityDto) {
+  update(@Param('id', new ParseUUIDPipe()) id: string, @Body() updateActivityDto: UpdateActivityDto) {
     return this.activityService.update(id, updateActivityDto);
   }
 
@@ -125,7 +127,7 @@ export class ActivityController {
     type: SwaggerBadRequestResponse,
   })
   @Delete('remove/:id')
-  remove(@Param('id') id: string) {
+  remove(@Param('id', new ParseUUIDPipe()) id: string) {
     return this.activityService.remove(id);
   }
 }

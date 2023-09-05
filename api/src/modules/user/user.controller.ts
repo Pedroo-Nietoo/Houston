@@ -7,6 +7,7 @@ import {
   Patch,
   Param,
   Delete,
+  ParseUUIDPipe,
 } from '@nestjs/common';
 import { UserService } from './user.service';
 import { CreateUserDto } from './dto/create-user.dto';
@@ -18,6 +19,7 @@ import {
   ApiNotFoundResponse,
   ApiOkResponse,
   ApiOperation,
+  ApiParam,
   ApiTags,
 } from '@nestjs/swagger';
 import { SwaggerConflictResponse } from '../helpers/conflict-response';
@@ -53,6 +55,7 @@ export class UserController {
     summary: 'Lista todos os usuários',
     description: 'Lista todos os usuários por página',
   })
+  @ApiParam({ name: 'page', schema: { default: 1 } })
   @ApiOkResponse({ status: 200, description: 'Usuários listados' })
   @ApiBadRequestResponse({
     status: 400,
@@ -112,7 +115,7 @@ export class UserController {
     type: SwaggerBadRequestResponse,
   })
   @Patch('update/:id')
-  update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
+  update(@Param('id', new ParseUUIDPipe()) id: string, @Body() updateUserDto: UpdateUserDto) {
     return this.userService.update(id, updateUserDto);
   }
 
@@ -133,7 +136,7 @@ export class UserController {
     type: SwaggerBadRequestResponse,
   })
   @Delete('remove/:id')
-  remove(@Param('id') id: string) {
+  remove(@Param('id', new ParseUUIDPipe()) id: string) {
     return this.userService.remove(id);
   }
 }
