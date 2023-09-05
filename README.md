@@ -1,5 +1,5 @@
-# Projeto
-_Melhorando hábitos, organizando tarefas e transformando sonhos!_
+# Houston 🚀
+_Melhorando hábitos, transformando sonhos!_
 
 <br>
 
@@ -76,7 +76,7 @@ cd api
 docker build.
 ```
 
-Isso criará a imagem Houston e extrairá as dependências necessárias.
+Isso criará a imagem do Houston e extrairá as dependências necessárias.
 
 Uma vez feito isso, execute a imagem Docker e use os comandos de _script_ fornecidos no app para subir e rodar os contêineres:
 
