@@ -16,7 +16,7 @@ O projeto utiliza vários projetos de código aberto para funcionar corretamente
 - [Jest](https://jestjs.io/pt-BR/) - Testes da aplicação.
 - [PostgreSQL](https://www.postgresql.org/) - Banco de Dados relacional do projeto.
 
-E é claro que o próprio projeto é open source com um [repositório público](https://github.com/Pedroo-Nietoo/Projeto) no GitHub.
+E é claro que o próprio projeto é open source com um [repositório público](https://github.com/Pedroo-Nietoo/Houston) no GitHub.
 
 <br>
 
