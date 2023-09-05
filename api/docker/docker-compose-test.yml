@@ -1,0 +1,44 @@
+version: '3.8'
+services:
+  tests:
+    stdin_open: true
+    container_name: e2e-tests
+    image: node:latest
+    working_dir: /usr/src/app
+    command: '/usr/src/app/docker/docker-run-test.sh'
+    env_file:
+      - ../test.env
+    depends_on:
+      - postgres-test
+    volumes:
+      - ..:/usr/src/app
+      - ../node_modules:/usr/src/app/node_modules
+
+  postgres-test:
+    image: postgres:latest
+    container_name: postgres-test
+    restart: always
+    environment:
+      - POSTGRES_USER=projetoDocker
+      - POSTGRES_PASSWORD=projetoDocker
+    command: postgres -c 'max_connections=1000'
+    volumes:
+      - postgres-test:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    depends_on:
+      - postgres-test
+    ports:
+      - '5555:80'
+    environment:
+      PGADMIN_DEFAULT_EMAIL: projetoDocker@example.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    restart: unless-stopped
+
+volumes:
+  postgres-test:
+  pgadmin:
