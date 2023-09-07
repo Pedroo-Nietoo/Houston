@@ -62,6 +62,18 @@ npm i
 npm start
 ```
 
+<br>
+
+```
+# Na pasta do projeto
+
+# Para instalar as dependências do App e rodá-lo
+cd app
+npm i
+npm start
+```
+
+<br>
 
 ## Docker
 

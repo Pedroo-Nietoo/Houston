@@ -7,7 +7,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   const config = new DocumentBuilder()
-    .setTitle('API - Houston')
+    .setTitle('API - Houston 🚀')
     .setDescription('API de usuários e atividades do projeto Houston')
     .setVersion('1.0')
     .setLicense('MIT', 'https://opensource.org/license/mit/')
