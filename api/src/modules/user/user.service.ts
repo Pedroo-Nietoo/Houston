@@ -75,6 +75,11 @@ export class UserService {
               id: true,
             },
           },
+          habits: {
+            select: {
+              id: true,
+            },
+          },
         },
         take: 20,
       });
@@ -87,6 +92,11 @@ export class UserService {
           nickname: true,
           email: true,
           activities: {
+            select: {
+              id: true,
+            },
+          },
+          habits: {
             select: {
               id: true,
             },
