@@ -19,15 +19,15 @@ async function bootstrap() {
 
     .addTag('Usuário', 'Tudo sobre os usuários', {
       description: 'Saiba mais',
-      url: 'http://sua-url-de-saiba-mais',
+      url: 'https://github.com/Pedroo-Nietoo/Houston',
     })
     .addTag('Atividade', 'Tudo sobre as atividades', {
       description: 'Saiba mais',
-      url: 'http://sua-url-de-saiba-mais',
+      url: 'https://github.com/Pedroo-Nietoo/Houston',
     })
     .addTag('Hábito', 'Tudo sobre os hábitos', {
       description: 'Saiba mais',
-      url: 'http://sua-url-de-saiba-mais',
+      url: 'https://github.com/Pedroo-Nietoo/Houston',
     })
     .build();
   const document = SwaggerModule.createDocument(app, config);

@@ -23,7 +23,7 @@ export class ApiController {
     archive.append(fs.createReadStream(pdfPath1), { name: 'Política de Privacidade.pdf' });
     archive.append(fs.createReadStream(pdfPath2), { name: 'Termos de Uso.pdf' });
 
-    res.attachment('Termos de Serviço.zip'); // Define o nome do arquivo a ser baixado
+    res.attachment('Termos de Serviço.zip');
     archive.pipe(res);
 
     await archive.finalize();
