@@ -55,7 +55,7 @@ export class UserController {
     summary: 'Lista todos os usuários',
     description: 'Lista todos os usuários por página',
   })
-  @ApiParam({ name: 'page', schema: { default: 1 } })
+  @ApiParam({ name: 'page', description: 'Página de listagem dos usuários', schema: { default: 1 } })
   @ApiOkResponse({ status: 200, description: 'Usuários listados' })
   @ApiBadRequestResponse({
     status: 400,

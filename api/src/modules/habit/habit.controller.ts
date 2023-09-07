@@ -46,7 +46,7 @@ export class HabitController {
     summary: 'Lista todos os hábitos',
     description: 'Lista todos os hábitos por página',
   })
-  @ApiParam({ name: 'page', schema: { default: 1 } })
+  @ApiParam({ name: 'page', description: 'Página de listagem dos hábitos', schema: { default: 1 } })
   @ApiOkResponse({ status: 200, description: 'Hábitos listados' })
   @ApiBadRequestResponse({
     status: 400,

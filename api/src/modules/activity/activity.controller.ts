@@ -46,7 +46,7 @@ export class ActivityController {
     summary: 'Lista todas as Atividades',
     description: 'Lista todas as atividades por página',
   })
-  @ApiParam({ name: 'page', schema: { default: 1 } })
+  @ApiParam({ name: 'page', description: 'Página de listagem das atividades', schema: { default: 1 } })
   @ApiOkResponse({ status: 200, description: 'Atividades listadas' })
   @ApiBadRequestResponse({
     status: 400,
