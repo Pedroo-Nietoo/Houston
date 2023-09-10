@@ -1,0 +1,65 @@
+.Cadastro {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+}
+
+.Cadastro h1 {
+    margin-bottom: -100px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    color: blueviolet;
+}
+
+.Cadastro form {
+    display: grid;
+    grid-template-columns: 500px;
+}
+
+.input {
+    padding: 10px 15px;
+    margin: 10px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    border: 2px solid #DDD;
+    transition: .3s;
+    font-size: 16px;
+    outline: none;
+}
+
+.input::placeholder {
+    font-size: 16px;
+}
+
+.input:is(:focus, :active) {
+    border-color: blueviolet;
+    transition: .3s;
+}
+
+#btn {
+    padding: 10px 10px;
+    margin: 10px;
+    border-radius: 10px;
+    border: none;
+    border: 2px solid blueviolet;
+    background-color: transparent;
+    color: blueviolet;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: .5s;
+}
+
+#btn:hover {
+    background-color: blueviolet;
+    color: #FFF;
+    transform: scale(1.05, 1.05);
+    filter: drop-shadow(0 0 20px #ddd);
+    transition: .5s;
+}
+
+.flexAlign {
+    display: flex;
+    width: 100%;
+}
