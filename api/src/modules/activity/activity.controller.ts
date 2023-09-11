@@ -16,7 +16,9 @@ import { ApiBadRequestResponse, ApiConflictResponse, ApiCreatedResponse, ApiNotF
 import { SwaggerBadRequestResponse } from '../helpers/bad-request-response';
 import { SwaggerConflictResponse } from '../helpers/conflict-response';
 import { SwaggerNotFoundResponse } from '../helpers/not-found-response';
+import { ApiBearerAuth } from '@nestjs/swagger';
 
+@ApiBearerAuth()
 @ApiTags('Atividade')
 @Controller('activity')
 export class ActivityController {

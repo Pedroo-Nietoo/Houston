@@ -14,6 +14,7 @@ import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import {
   ApiBadRequestResponse,
+  ApiBearerAuth,
   ApiConflictResponse,
   ApiCreatedResponse,
   ApiNotFoundResponse,
@@ -25,7 +26,9 @@ import {
 import { SwaggerConflictResponse } from '../helpers/conflict-response';
 import { SwaggerBadRequestResponse } from '../helpers/bad-request-response';
 import { SwaggerNotFoundResponse } from '../helpers/not-found-response';
+import { Public } from 'src/auth/decorators/public.decorator';
 
+@ApiBearerAuth()
 @ApiTags('Usuário')
 @Controller('user')
 export class UserController {
@@ -46,6 +49,7 @@ export class UserController {
     description: 'Requisição inválida',
     type: SwaggerBadRequestResponse,
   })
+  @Public()
   @Post('create')
   create(@Body() createUserDto: CreateUserDto) {
     return this.userService.create(createUserDto);

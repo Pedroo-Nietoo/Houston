@@ -12,11 +12,12 @@ import {
 import { HabitService } from './habit.service';
 import { CreateHabitDto } from './dto/create-habit.dto';
 import { UpdateHabitDto } from './dto/update-habit.dto';
-import { ApiBadRequestResponse, ApiConflictResponse, ApiCreatedResponse, ApiNotFoundResponse, ApiOkResponse, ApiOperation, ApiParam, ApiTags } from '@nestjs/swagger';
+import { ApiBadRequestResponse, ApiBearerAuth, ApiConflictResponse, ApiCreatedResponse, ApiNotFoundResponse, ApiOkResponse, ApiOperation, ApiParam, ApiTags } from '@nestjs/swagger';
 import { SwaggerBadRequestResponse } from '../helpers/bad-request-response';
 import { SwaggerConflictResponse } from '../helpers/conflict-response';
 import { SwaggerNotFoundResponse } from '../helpers/not-found-response';
 
+@ApiBearerAuth()
 @ApiTags('Hábito')
 @Controller('habit')
 export class HabitController {
