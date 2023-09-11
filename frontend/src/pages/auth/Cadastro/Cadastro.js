@@ -8,6 +8,7 @@ export default function Cadastro() {
     const [selected, setSelected] = useState("");
     const [isOptionSelected, setIsOptionSelected] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         setIsOptionSelected(selected !== "");
@@ -44,11 +45,16 @@ export default function Cadastro() {
 
         axios.post('http://localhost:3000/user/create', userData)
             .then(response => {
-                alert(`Usuário criado com sucesso`, response.status);
+                alert(`Usuário criado com sucesso`, response);
                 window.location.replace('/home');
             })
             .catch(error => {
-                alert('Erro ao criar usuário:', error);
+                let translatedErrorMessage = error.response.data.message[0];
+                if (translatedErrorMessage === "password is not strong enough") {
+                    translatedErrorMessage = "Senha não é forte o suficiente";
+                }
+                setError(translatedErrorMessage);
+                console.error(translatedErrorMessage);
             });
     };
 
@@ -81,6 +87,7 @@ export default function Cadastro() {
                             {showPassword ? <FaEyeSlash /> : <FaEye />}
                         </div>
                     </div>
+                    {error && <p className="error-message">{error}</p>}
                     <button id="btn" type="submit" >Cadastre-se</button>
                 </form>
             </div>
