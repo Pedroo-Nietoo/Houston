@@ -49,8 +49,9 @@ export default function Cadastro() {
                 window.location.replace('/home');
             })
             .catch(error => {
-                let translatedErrorMessage = error.response.data.message[0];
-                if (translatedErrorMessage === "password is not strong enough") {
+                console.log(error.response)
+                let translatedErrorMessage = error.response.data.message;
+                if (translatedErrorMessage[0] === "password is not strong enough") {
                     translatedErrorMessage = "Senha não é forte o suficiente";
                 }
                 setError(translatedErrorMessage);

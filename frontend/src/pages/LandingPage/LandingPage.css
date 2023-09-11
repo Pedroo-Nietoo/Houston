@@ -122,3 +122,8 @@ main {
     height: 660px;
     width: 100%;
 }
+
+.template {
+    margin-left: 50%;
+    margin-top: -300px;
+}

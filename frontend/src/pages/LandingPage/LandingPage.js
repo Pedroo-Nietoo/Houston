@@ -1,6 +1,6 @@
 import './LandingPage.css';
 import { Link } from 'react-router-dom';
-
+import templateImg from './assets/template.png';
 export default function LandingPage() {
     return (
         <div>
@@ -33,6 +33,7 @@ export default function LandingPage() {
                     <button className='startButtons access'><Link to="/cadastro">Acesse o site</Link></button>
                     <button className='startButtons about'>Saiba mais</button>
                 </div>
+                <img className='template' src={templateImg} alt='app' />
             </header>
             <main>
             </main>
