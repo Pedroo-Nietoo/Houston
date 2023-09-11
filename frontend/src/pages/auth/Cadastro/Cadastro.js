@@ -1,15 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Cadastro.css';
-import Dropdown from '../../components/Dropdown/Dropdown';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import Dropdown from '../../../components/Dropdown/Dropdown';
 
 export default function Cadastro() {
     const [selected, setSelected] = useState("");
     const [isOptionSelected, setIsOptionSelected] = useState(false);
+    const [showPassword, setShowPassword] = useState(false);
 
     useEffect(() => {
         setIsOptionSelected(selected !== "");
     }, [selected]);
+
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+    };
 
     const createUser = (e) => {
         e.preventDefault();
@@ -38,9 +44,8 @@ export default function Cadastro() {
 
         axios.post('http://localhost:3000/user/create', userData)
             .then(response => {
-                alert(`Usuário criado com sucesso \n ${response.data}`, response.data);
-                // window.location.replace('/login');
-                console.log(response);
+                alert(`Usuário criado com sucesso`, response.status);
+                window.location.replace('/home');
             })
             .catch(error => {
                 alert('Erro ao criar usuário:', error);
@@ -64,8 +69,19 @@ export default function Cadastro() {
                             setSelected={setSelected}
                         />
                     </div>
-                    <input id="password" className='input' placeholder="Senha" required />
-                    <button id="btn" type="submit">Cadastre-se</button>
+                    <div className='passwordAlign'>
+                        <input
+                            id="password"
+                            className='passwordInput'
+                            placeholder="Senha"
+                            type={showPassword ? 'text' : 'password'}
+                            required
+                        />
+                        <div className='eye-icon' onClick={togglePasswordVisibility}>
+                            {showPassword ? <FaEyeSlash /> : <FaEye />}
+                        </div>
+                    </div>
+                    <button id="btn" type="submit" >Cadastre-se</button>
                 </form>
             </div>
         </div>

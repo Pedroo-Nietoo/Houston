@@ -18,7 +18,7 @@
 }
 
 .input {
-    padding: 10px 15px;
+    padding: 10px 8px;
     margin: 10px;
     margin-bottom: 30px;
     border-radius: 10px;
@@ -49,6 +49,7 @@
     text-transform: uppercase;
     font-weight: 500;
     transition: .5s;
+    cursor: pointer;
 }
 
 #btn:hover {
@@ -62,4 +63,37 @@
 .flexAlign {
     display: flex;
     width: 100%;
+}
+
+.passwordAlign {
+    display: flex;
+    width: 465px;
+}
+
+.passwordInput {
+    width: 100%;
+    padding: 10px 15px;
+    margin: 10px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    border: 2px solid #DDD;
+    transition: .3s;
+    font-size: 16px;
+    outline: none;
+}
+
+.passwordInput:is(:focus, :active) {
+    border-color: blueviolet;
+    transition: .3s;
+}
+
+.eye-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-left: -50px;
+    margin-bottom: 18px;
+    color: blueviolet;
+    font-size: 20px;
 }
