@@ -29,7 +29,7 @@ export default function LandingPage() {
                     <p className='content'>Aplicativo mobile e página web onde é possível controlar hábitos e atividades, aumentando sua produtividade com o uso de calendário, lista de tarefas, notificações e outros.
                     </p>
                     <button className='startButtons access'><Link to="/cadastro">Acesse o site</Link></button>
-                    <button className='startButtons about'>Saiba mais</button>
+                    <button className='startButtons about'><a href="#about">Saiba mais</a></button>
                 </div>
                 <img className='template' src={templateImg} alt='app' />
             </header>

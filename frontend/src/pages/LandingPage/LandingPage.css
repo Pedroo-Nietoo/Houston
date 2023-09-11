@@ -17,7 +17,7 @@
 }
 
 .items {
-    margin-left: 190px;
+    margin-right: 130px;
 }
 
 .item {
@@ -26,6 +26,7 @@
 
 .account {
     float: left;
+    margin-left: -400px;
 }
 
 .item a {
@@ -98,14 +99,15 @@ header {
     text-decoration: none;
 }
 
-.startButtons:hover {
-    transform: scale(1.05, 1.05);
-    transition: all .3s;
+.access,
+.about {
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
 }
 
 .access {
     background-color: #FFF;
-    color: #4B8DF0;
 }
 
 .access a {
@@ -114,7 +116,16 @@ header {
 
 .about {
     background-color: transparent;
+}
+
+.about a {
     color: #FFF;
+}
+
+.about:hover,
+.access:hover {
+    transform: scale(1.05, 1.05);
+    transition: all .3s;
 }
 
 main {
