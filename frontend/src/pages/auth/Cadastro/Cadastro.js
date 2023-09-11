@@ -65,12 +65,12 @@ export default function Cadastro() {
             <div className='form'>
                 <form onSubmit={createUser}>
                     <div className='flexAlign'>
-                        <input id="firstName" className='input' placeholder="Nome" required />
-                        <input id="lastName" className='input' placeholder="Sobrenome" required />
+                        <input id="firstName" className='input' placeholder="Nome" required autoComplete='off' />
+                        <input id="lastName" className='input' placeholder="Sobrenome" required autoComplete='off' />
                     </div>
-                    <input id="nickname" className='input' placeholder="Nickname" required />
+                    <input id="nickname" className='input' placeholder="Nickname" required autoComplete='off' />
                     <div className='flexAlign'>
-                        <input id="email" className='input' placeholder="E-mail" required />
+                        <input id="email" className='input' placeholder="E-mail" required autoComplete='off' />
                         <Dropdown
                             selected={selected}
                             setSelected={setSelected}
@@ -83,6 +83,7 @@ export default function Cadastro() {
                             placeholder="Senha"
                             type={showPassword ? 'text' : 'password'}
                             required
+                            autoComplete='off'
                         />
                         <div className='eye-icon' onClick={togglePasswordVisibility}>
                             {showPassword ? <FaEyeSlash /> : <FaEye />}

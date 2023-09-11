@@ -19,10 +19,8 @@ export default function LandingPage() {
                             <li className='item'><a href="#app">Aplicativo</a></li>
                             <li className='item'><a href="#contact">Contato</a></li>
                         </div>
-                        <div>
-                            <li className='account'><Link to="/cadastro">Cadastro</Link></li>
-                            <li className='account'><Link to="/login">Login</Link></li>
-                        </div>
+                        <li className='account'><Link to="/login">Login</Link></li>
+                        <li className='account'><Link to="/cadastro">Cadastro</Link></li>
                     </ul>
                 </nav>
 
