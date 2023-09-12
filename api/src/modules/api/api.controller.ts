@@ -5,6 +5,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import * as archiver from 'archiver';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
+import { Public } from 'src/auth/decorators/public.decorator';
 
 @ApiTags('Termos de Serviço')
 @Controller()
@@ -13,6 +14,7 @@ export class ApiController {
     summary: 'Baixa os Termos de Serviço da aplicação',
     description: 'Rota responsável pelo downlaod dos arquivos de Política de Privacidade e de Termos de Uso compactados no arquivo Termos de Serviço.zip'
   })
+  @Public()
   @Get('termsOfService')
   async getTermsOfService(@Res() res: Response) {
     const pdfPath1 = path.join(__dirname, '..', '..', 'assets', 'privacyPolicy.pdf');
