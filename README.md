@@ -36,15 +36,17 @@ npm run start
 ```
 ### *Atenção*
 Para rodar a API localmente, certifique-se de alterar o arquivo `.env` do projeto para as especificações do seu banco de dados. No exemplo abaixo, é utilizado o usuário `postgres` com a senha `postgres` na porta local 5432. Além disso, tem-se o nome do banco como `minhaDB`.
+
 ```sh 
-DATABASE_URL="postgresql://postgres:postgres@localhost:5432/minhaDB?schema=public"
+DATABASE_URL="postgresql://postgres:postgres@localhost:5432/minhaDB"
 ```
 
 <br>
 
-Como modelo para substituir as informações pelas suas, segue abaixo um link com os espaços onde se deve substituir. 
+Utilize o modelo abaixo para substituir os parâmetros da URL pelos dados do seu computador. 
+
 ```sh 
-DATABASE_URL="postgresql://<seuUsuario>:<suaSenha>@localhost:<porta>/<nomeDoBanco>?schema=public"
+DATABASE_URL="postgresql://<seuUsuario>:<suaSenha>@localhost:<porta>/<nomeDoBanco>"
 ```
 
 <br>
@@ -79,18 +81,22 @@ npm start
 
 Houston é muito fácil de instalar e implantar em um contêiner Docker.
 
-Por padrão, o Docker irá expor a porta 3000 para rodar a API, então altere isso dentro do
-docker-compose se necessário. Quando estiver pronto, basta usar o Dockerfile para
-construir a imagem.
+Por padrão, o Docker irá rodar sua aplicação como um todo na nuvem (desde o banco de dados, API, serviço Web do Front-End e outros). Para isso, altere o arquivo `.env` da seguinte maneira:
+
+```sh
+DATABASE_URL="postgresql://houstonAdmin:houstonAdmin@postgres:5432/minhaDB"
+```
+
+Com isso, o projeto deixará de buscar o banco de dados rodando no `localhost` e irá começar a buscar pelo postgres, rodando na nuvem na porta `:5432`. Após isso, utilize os comandos para rodar o docker no projeto.
 
 ```sh
 cd api
 docker build.
 ```
 
-Isso criará a imagem do Houston e extrairá as dependências necessárias.
+Isso criará os contêineres do Houston e extrairá as dependências necessárias.
 
-Uma vez feito isso, execute a imagem Docker e use os comandos de _script_ fornecidos no app para subir e rodar os contêineres:
+Uma vez feito isso, execute a aplicação atrabés do docker Docker usando os comandos de _script_ fornecidos na pasta `api/scripts` para subir e rodar os contêineres:
 
 ```sh
 ./scripts/run-dev.sh up
