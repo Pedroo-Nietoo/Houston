@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import { ApiProperty } from "@nestjs/swagger";
-import { IsDate, IsNotEmpty, IsString } from "class-validator";
+import { IsDate, IsNotEmpty, IsOptional, IsString } from "class-validator";
 
 export class CreateHabitDto {
     @ApiProperty({ description: 'Título do hábito', type: String, example: 'Melhorar a leitura' })
@@ -13,8 +13,7 @@ export class CreateHabitDto {
     @IsNotEmpty()
     content: string;
 
-    @ApiProperty({ description: 'Data de início do hábito', type: String, example: '2023-09-03T02:44:18.348Z' })
-    @IsNotEmpty()
+    @IsOptional()
     @IsDate()
     createdAt: Date;
 
