@@ -10,6 +10,7 @@ export default function Login() {
     useEffect(() => {
         const accessToken = localStorage.getItem('accessToken');
         if (accessToken) {
+            // localStorage.removeItem('accessToken')
             window.location.replace('/home');
         }
     }, []);
