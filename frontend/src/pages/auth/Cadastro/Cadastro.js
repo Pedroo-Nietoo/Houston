@@ -81,7 +81,7 @@ export default function Cadastro() {
                         <input id="firstName" className='input' placeholder="Nome" required autoComplete='off' />
                         <input id="lastName" className='input' placeholder="Sobrenome" required autoComplete='off' />
                     </div>
-                    <input id="username" className='input' placeholder="username" required autoComplete='off' />
+                    <input id="username" className='input' placeholder="Username" required autoComplete='off' />
                     <div className='flexAlign'>
                         <input id="email" className='input' placeholder="E-mail" required autoComplete='off' />
                         <Dropdown
