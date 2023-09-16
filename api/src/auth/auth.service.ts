@@ -17,7 +17,7 @@ export class AuthService {
     const isMatch = await bcrypt.compare(pass, user.password);
 
     if (isMatch) {
-      const payload = { id: user.id, nickname: user.nickname };
+      const payload = { id: user.id, nickname: user.nickname, firstName: user.firstName, lastName: user.lastName };
       return await this.jwtService.signAsync(payload)
     } else {
       throw new UnauthorizedException('Senha incorreta');
