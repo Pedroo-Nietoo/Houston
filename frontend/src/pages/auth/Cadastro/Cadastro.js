@@ -46,10 +46,23 @@ export default function Cadastro() {
         axios.post('http://localhost:3000/user/create', userData)
             .then(response => {
                 alert(`Usuário criado com sucesso`, response);
-                window.location.replace('/home');
+                axios.post('http://localhost:3000/auth/login', userData)
+                    .then(loginResponse => {
+                        console.log(loginResponse.data);
+                        localStorage.setItem('accessToken', loginResponse.data);
+                        window.location.replace('/home');
+                    })
+                    .catch(loginError => {
+                        console.log(loginError.response);
+                        let translatedErrorMessage = loginError.response.data.message;
+                        if (translatedErrorMessage[0] === "password is not strong enough") {
+                            translatedErrorMessage = "Senha não é forte o suficiente";
+                        }
+                        setError(translatedErrorMessage);
+                    });
             })
             .catch(error => {
-                console.log(error.response)
+                console.log(error.response);
                 let translatedErrorMessage = error.response.data.message;
                 if (translatedErrorMessage[0] === "password is not strong enough") {
                     translatedErrorMessage = "Senha não é forte o suficiente";

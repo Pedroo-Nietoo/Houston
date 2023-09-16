@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './Login.css';
 import axios from 'axios';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
@@ -6,14 +6,6 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa';
 export default function Login() {
     const [showPassword, setShowPassword] = useState(false);
     const [error, setError] = useState(null);
-
-    useEffect(() => {
-        const accessToken = localStorage.getItem('accessToken');
-        if (accessToken) {
-            // localStorage.removeItem('accessToken')
-            window.location.replace('/home');
-        }
-    }, []);
 
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
