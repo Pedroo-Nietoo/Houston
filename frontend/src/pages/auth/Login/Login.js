@@ -48,7 +48,7 @@ export default function Login() {
             <h1>Login</h1>
             <div className='form'>
                 <form onSubmit={logUser}>
-                    <input id="username" className='input' placeholder="username" required autoComplete='off' />
+                    <input id="username" className='input' placeholder="Username" required autoComplete='off' />
                     <div className='passwordAlign'>
                         <input
                             id="password"
