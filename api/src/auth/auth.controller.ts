@@ -26,7 +26,7 @@ export class AuthController {
   @ApiBadRequestResponse({ description: 'Requisição inválida', status: 400 })
   @ApiUnauthorizedResponse({ description: 'Acesso não autorizado', status: 401 })
   signIn(@Body() signInDto: CreateUserDto) {
-    return this.authService.signIn(signInDto.nickname, signInDto.password);
+    return this.authService.signIn(signInDto.username, signInDto.password);
   }
 
   @Get('profile')

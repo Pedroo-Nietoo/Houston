@@ -23,7 +23,7 @@ export default function Cadastro() {
 
         const firstName = document.getElementById("firstName").value;
         const lastName = document.getElementById("lastName").value;
-        const nickname = document.getElementById("nickname").value;
+        const username = document.getElementById("username").value;
         const emailName = document.getElementById("email").value;
         const password = document.getElementById("password").value;
 
@@ -32,7 +32,7 @@ export default function Cadastro() {
         const userData = {
             firstName: firstName,
             lastName: lastName,
-            nickname: nickname,
+            username: username,
             email: email,
             password: password,
             isManager: false
@@ -81,7 +81,7 @@ export default function Cadastro() {
                         <input id="firstName" className='input' placeholder="Nome" required autoComplete='off' />
                         <input id="lastName" className='input' placeholder="Sobrenome" required autoComplete='off' />
                     </div>
-                    <input id="nickname" className='input' placeholder="Nickname" required autoComplete='off' />
+                    <input id="username" className='input' placeholder="username" required autoComplete='off' />
                     <div className='flexAlign'>
                         <input id="email" className='input' placeholder="E-mail" required autoComplete='off' />
                         <Dropdown

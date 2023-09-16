@@ -14,13 +14,13 @@ export default function Login() {
     const logUser = (e) => {
         e.preventDefault();
 
-        const nickname = document.getElementById("nickname").value;
+        const username = document.getElementById("username").value;
         const password = document.getElementById("password").value;
 
         const userData = {
             firstName: "1",
             lastName: "1",
-            nickname: nickname,
+            username: username,
             email: "1@example.com",
             password: password,
             isManager: false
@@ -48,7 +48,7 @@ export default function Login() {
             <h1>Login</h1>
             <div className='form'>
                 <form onSubmit={logUser}>
-                    <input id="nickname" className='input' placeholder="Nickname" required autoComplete='off' />
+                    <input id="username" className='input' placeholder="username" required autoComplete='off' />
                     <div className='passwordAlign'>
                         <input
                             id="password"

@@ -20,7 +20,7 @@ export class CreateUserDto {
     @ApiProperty({ description: 'Apelido do usuário', type: String, example: 'PedrooSilvaa' })
     @IsString()
     @IsNotEmpty()
-    nickname: string;
+    username: string;
 
     @ApiProperty({ description: 'E-mail do usuário', type: String, example: 'pedrosilva@exemplo.com' })
     @IsEmail()

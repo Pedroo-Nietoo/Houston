@@ -11,13 +11,13 @@ export class AuthService {
     private jwtService: JwtService,
   ) { }
 
-  async signIn(nickname: string, pass: string) {
-    const user = await this.userService.findInfos(nickname);
+  async signIn(username: string, pass: string) {
+    const user = await this.userService.findInfos(username);
 
     const isMatch = await bcrypt.compare(pass, user.password);
 
     if (isMatch) {
-      const payload = { id: user.id, nickname: user.nickname, firstName: user.firstName, lastName: user.lastName };
+      const payload = { id: user.id, username: user.username, firstName: user.firstName, lastName: user.lastName };
       return await this.jwtService.signAsync(payload)
     } else {
       throw new UnauthorizedException('Senha incorreta');

@@ -20,14 +20,14 @@ export class UserService {
       throw new ConflictException(`Usuário com o e-mail ${createUserDto.email} já existe`);
     }
 
-    const nicknameExists = await this.prisma.user.findFirst({
+    const usernameExists = await this.prisma.user.findFirst({
       where: {
-        nickname: createUserDto.nickname,
+        username: createUserDto.username,
       },
     });
 
-    if (nicknameExists) {
-      throw new ConflictException(`Usuário com o nickname ${createUserDto.nickname} já existe`);
+    if (usernameExists) {
+      throw new ConflictException(`Usuário com o username ${createUserDto.username} já existe`);
     }
 
     const salt = await bcrypt.genSalt();
@@ -48,7 +48,7 @@ export class UserService {
           id: true,
           firstName: true,
           lastName: true,
-          nickname: true,
+          username: true,
           email: true,
           activities: {
             select: {
@@ -68,7 +68,7 @@ export class UserService {
           id: true,
           firstName: true,
           lastName: true,
-          nickname: true,
+          username: true,
           email: true,
           activities: {
             select: {
@@ -89,7 +89,7 @@ export class UserService {
           id: true,
           firstName: true,
           lastName: true,
-          nickname: true,
+          username: true,
           email: true,
           activities: {
             select: {
@@ -108,16 +108,16 @@ export class UserService {
     }
   }
 
-  async findOne(nickname: string) {
+  async findOne(username: string) {
     const user = await this.prisma.user.findUnique({
       where: {
-        nickname,
+        username,
       },
       select: {
         id: true,
         firstName: true,
         lastName: true,
-        nickname: true,
+        username: true,
         email: true,
         activities: {
           select: {
@@ -134,7 +134,7 @@ export class UserService {
 
     const userExists = await this.prisma.user.findUnique({
       where: {
-        nickname: nickname,
+        username: username,
       },
     });
 
@@ -156,14 +156,14 @@ export class UserService {
       throw new NotFoundException('Usuário não existe!');
     }
 
-    const nicknameExists = await this.prisma.user.findFirst({
+    const usernameExists = await this.prisma.user.findFirst({
       where: {
-        nickname: updateUserDto.nickname,
+        username: updateUserDto.username,
       },
     });
 
-    if (nicknameExists) {
-      throw new ConflictException(`Usuário com o nickname ${updateUserDto.nickname} já existe`);
+    if (usernameExists) {
+      throw new ConflictException(`Usuário com o username ${updateUserDto.username} já existe`);
     }
 
     const salt = await bcrypt.genSalt();
@@ -201,10 +201,10 @@ export class UserService {
     });
   }
 
-  async findInfos(nickname: string): Promise<CreateUserDto | undefined> {
+  async findInfos(username: string): Promise<CreateUserDto | undefined> {
     return this.prisma.user.findFirst({
       where: {
-        nickname: nickname
+        username: username
       }
     });
   }

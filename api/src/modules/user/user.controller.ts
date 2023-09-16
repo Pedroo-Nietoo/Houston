@@ -41,7 +41,7 @@ export class UserController {
   @ApiCreatedResponse({ status: 201, description: 'Usuário criado' })
   @ApiConflictResponse({
     status: 409,
-    description: 'Usuário com mesmo nickname/e-mail já existe',
+    description: 'Usuário com mesmo username/e-mail já existe',
     type: SwaggerConflictResponse,
   })
   @ApiBadRequestResponse({
@@ -74,7 +74,7 @@ export class UserController {
   @ApiOperation({
     summary: 'Lista um usuário específico',
     description:
-      'Lista as informações de um usuário específico com base no nickname',
+      'Lista as informações de um usuário específico com base no username',
   })
   @ApiOkResponse({
     status: 200,
@@ -90,9 +90,9 @@ export class UserController {
     description: 'Requisição inválida',
     type: SwaggerBadRequestResponse,
   })
-  @Get('find/:nickname')
-  findOne(@Param('nickname') nickname: string) {
-    return this.userService.findOne(nickname);
+  @Get('find/:username')
+  findOne(@Param('username') username: string) {
+    return this.userService.findOne(username);
   }
 
   @ApiOperation({
@@ -110,7 +110,7 @@ export class UserController {
   })
   @ApiConflictResponse({
     status: 409,
-    description: 'Usuário com mesmo nickname já existe',
+    description: 'Usuário com mesmo username já existe',
     type: SwaggerConflictResponse,
   })
   @ApiBadRequestResponse({
