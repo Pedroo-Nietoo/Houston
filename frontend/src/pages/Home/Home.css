@@ -30,7 +30,36 @@
     margin: 0 20px;
 }
 
-.Home h1 {
+.shadow {}
+
+.profileCard {
+    margin-top: 50px;
+    margin-left: 530px;
+    text-align: center;
+    border-radius: 20px;
+    width: 350px;
+    height: 450px;
+    border: solid 2px #a351f0;
+    z-index: 1;
+}
+
+.purpleCardPart {
+    background-color: #a351f0;
+    width: 350px;
+    height: 150px;
+    border-radius: 15px 15px 0 0;
+    z-index: 2;
+}
+
+.profileCard img {
+    margin-top: 50px;
+    width: 150px;
+    border-radius: 100%;
+    border: solid 10px #fff;
+}
+
+.greeting {
+    margin-top: 20px;
     font-size: 30px;
     text-align: center;
     margin-top: 50px;
