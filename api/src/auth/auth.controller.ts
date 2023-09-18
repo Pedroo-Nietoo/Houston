@@ -38,7 +38,7 @@ export class AuthController {
       id: req.user.id,
       firstName: req.user.firstName,
       lastName: req.user.lastName,
-      nickname: req.user.nickname,
+      username: req.user.username,
     }
     return user;
   }
