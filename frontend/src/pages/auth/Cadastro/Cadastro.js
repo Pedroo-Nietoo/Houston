@@ -49,7 +49,7 @@ export default function Cadastro() {
                 axios.post('http://localhost:3000/auth/login', userData)
                     .then(loginResponse => {
                         console.log(loginResponse.data);
-                        localStorage.setItem('accessToken', loginResponse.data);
+                        sessionStorage.setItem('accessToken', loginResponse.data);
                         window.location.replace('/home');
                     })
                     .catch(loginError => {

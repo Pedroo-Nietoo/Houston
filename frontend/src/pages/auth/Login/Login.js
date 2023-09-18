@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Login.css';
 import axios from 'axios';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
@@ -6,6 +6,14 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa';
 export default function Login() {
     const [showPassword, setShowPassword] = useState(false);
     const [error, setError] = useState(null);
+
+
+    useEffect(() => {
+        const accessToken = sessionStorage.getItem('accessToken');
+        if (accessToken) {
+            window.location.replace('/home');
+        }
+    }, []);
 
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
@@ -29,7 +37,7 @@ export default function Login() {
         axios.post('http://localhost:3000/auth/login', userData)
             .then(response => {
                 console.log(response.data)
-                localStorage.setItem('accessToken', response.data);
+                sessionStorage.setItem('accessToken', response.data);
                 alert(`Usuário logado com sucesso`, response);
                 window.location.replace('/home');
             })
@@ -38,6 +46,9 @@ export default function Login() {
                 let translatedErrorMessage = error.response.data.message;
                 if (translatedErrorMessage[0] === "password is not strong enough") {
                     translatedErrorMessage = "Senha não é forte o suficiente";
+                }
+                if (translatedErrorMessage === "Internal server error") {
+                    translatedErrorMessage = "Usuário não existente";
                 }
                 setError(translatedErrorMessage);
             });
