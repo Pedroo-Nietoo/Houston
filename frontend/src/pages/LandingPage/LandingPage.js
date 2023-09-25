@@ -1,17 +1,17 @@
 import './LandingPage.css';
 import { Link } from 'react-router-dom';
-import templateImg from '../../../public/assets/images/template.png';
+import templateImg from '../../assets/images/template.png';
 import Feature from '../../components/Feature/Feature';
-import habitFeature from '../../../public/assets/images/habitFeature.png';
-import customizationFeature from '../../../public/assets/images/customizationFeature.png';
-import tasksFeature from '../../../public/assets/images/tasksFeature.png';
-import dashboardFeature from '../../../public/assets/images/dashboardFeature.png';
+import habitFeature from '../../assets/images/habitFeature.png';
+import customizationFeature from '../../assets/images/customizationFeature.png';
+import tasksFeature from '../../assets/images/tasksFeature.png';
+import dashboardFeature from '../../assets/images/dashboardFeature.png';
 import Footer from '../../components/Footer/Footer';
 
 export default function LandingPage() {
     return (
         <div>
-            <header>
+            <header id="home">
                 <nav className='navbar'>
                     <ul className='navItems'>
                         <div>
@@ -41,10 +41,12 @@ export default function LandingPage() {
                 <img className='template' src={templateImg} alt='app' />
             </header>
             <main>
-                <Feature imgURL={habitFeature} title="Habit Tracking" content="Crie hábitos, marque como realizados, customize-os e acompanhe seu progresso." />
-                <Feature imgURL={customizationFeature} title="Personalização" content="Aplicativo com cores personalizáveis e light/dark mode para ficar do seu agrado." />
-                <Feature imgURL={tasksFeature} title="Lista de tarefas" content="Controle sueus afazeres utilizando o sistema de lista de tarefas." />
-                <Feature imgURL={dashboardFeature} title="Gráficos de progresso" content="Acompanhe o progresso de seus hábitos com Dashboards incríveis." />
+                <div id="features">
+                    <Feature imgURL={habitFeature} title="Habit Tracking" content="Crie hábitos, marque como realizados, customize-os e acompanhe seu progresso." />
+                    <Feature imgURL={customizationFeature} title="Personalização" content="Aplicativo com cores personalizáveis e light/dark mode para ficar do seu agrado." />
+                    <Feature imgURL={tasksFeature} title="Lista de tarefas" content="Controle sueus afazeres utilizando o sistema de lista de tarefas." />
+                    <Feature imgURL={dashboardFeature} title="Gráficos de progresso" content="Acompanhe o progresso de seus hábitos com Dashboards incríveis." />
+                </div>
             </main>
             <Footer />
         </div>
