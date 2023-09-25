@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from 'react';
 import './LandingPage.css';
 import { Link } from 'react-router-dom';
 import templateImg from '../../assets/images/template.png';
@@ -9,6 +10,33 @@ import dashboardFeature from '../../assets/images/dashboardFeature.png';
 import Footer from '../../components/Footer/Footer';
 
 export default function LandingPage() {
+    const handleSmoothScroll = (e) => {
+        e.preventDefault();
+        const targetId = e.target.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+
+        if (targetElement) {
+            window.scrollTo({
+                top: targetElement.offsetTop,
+                behavior: 'smooth',
+            });
+        }
+    };
+
+    useEffect(() => {
+        const links = document.querySelectorAll('.navbar a');
+        links.forEach((link) => {
+            link.addEventListener('click', handleSmoothScroll);
+        });
+
+        // Remova os ouvintes de evento quando o componente é desmontado
+        return () => {
+            links.forEach((link) => {
+                link.removeEventListener('click', handleSmoothScroll);
+            });
+        };
+    }, []);
+
     return (
         <div>
             <header id="home">
@@ -22,7 +50,7 @@ export default function LandingPage() {
                         </div>
                         <div className='items'>
                             <li className='item'><a href="#about">Sobre</a></li>
-                            <li className='item'><a href="#highlights">Destaques</a></li>
+                            <li className='item'><a href="#features">Destaques</a></li>
                             <li className='item'><a href="#app">Aplicativo</a></li>
                             <li className='item'><a href="#contact">Contato</a></li>
                         </div>
@@ -48,7 +76,9 @@ export default function LandingPage() {
                     <Feature imgURL={dashboardFeature} title="Gráficos de progresso" content="Acompanhe o progresso de seus hábitos com Dashboards incríveis." />
                 </div>
             </main>
-            <Footer />
+            <footer id='contact'>
+                <Footer />
+            </footer>
         </div>
     );
 }
