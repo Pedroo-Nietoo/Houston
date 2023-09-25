@@ -30,8 +30,6 @@
     margin: 0 20px;
 }
 
-.shadow {}
-
 .profileCard {
     margin-top: 50px;
     margin-left: 530px;
@@ -63,7 +61,7 @@
     font-size: 30px;
     text-align: center;
     margin-top: 50px;
-    background: -webkit-linear-gradient(left, blueviolet, #C280FF);
+    background: -webkit-linear-gradient(left, #8a2be2, #a351f0);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }

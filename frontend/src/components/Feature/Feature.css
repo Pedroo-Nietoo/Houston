@@ -1,0 +1,33 @@
+.Feature {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+.Feature .alignment {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.Feature #feature {
+    width: 180px;
+}
+
+.Feature h1 {
+    margin-top: 20px;
+    font-size: 22px;
+    text-align: center;
+    width: 200px;
+}
+
+.Feature p {
+    margin-top: 20px;
+    font-size: 14px;
+    text-align: center;
+    width: 220px;
+}

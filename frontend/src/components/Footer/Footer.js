@@ -2,6 +2,7 @@ import './Footer.css';
 
 export default function Footer() {
     return (
-        <div></div>
+        <div className='Footer'>
+        </div>
     );
 }

@@ -31,7 +31,7 @@
 
 .item a {
     display: block;
-    color: white;
+    color: #FFF;
     text-align: center;
     padding: 10px 16px;
     text-decoration: none;
@@ -42,7 +42,7 @@
 
 .account a {
     display: block;
-    background-color: white;
+    background-color: #FFF;
     color: #4B8DF0;
     border-radius: 5px;
     text-align: center;
@@ -62,7 +62,7 @@
 header {
     width: 100%;
     height: 660px;
-    background-image: url(./assets/background.png);
+    background-image: url(./assets/images/background.png);
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -128,12 +128,16 @@ header {
     transition: all .3s;
 }
 
-main {
-    height: 660px;
-    width: 100%;
-}
-
 .template {
     margin-left: 50%;
     margin-top: -300px;
+}
+
+main {
+    background-color: #FFF;
+    height: 660px;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }

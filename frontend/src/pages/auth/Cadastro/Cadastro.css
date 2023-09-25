@@ -9,7 +9,7 @@
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 5px;
-    color: blueviolet;
+    color: #8a2be2;
 }
 
 .Cadastro form {
@@ -33,7 +33,7 @@
 }
 
 .input:is(:focus, :active) {
-    border-color: blueviolet;
+    border-color: #8a2be2;
     transition: .3s;
 }
 
@@ -42,9 +42,9 @@
     margin: 10px;
     border-radius: 10px;
     border: none;
-    border: 2px solid blueviolet;
+    border: 2px solid #8a2be2;
     background-color: transparent;
-    color: blueviolet;
+    color: #8a2be2;
     font-weight: bold;
     text-transform: uppercase;
     font-weight: 500;
@@ -53,7 +53,7 @@
 }
 
 #btn:hover {
-    background-color: blueviolet;
+    background-color: #8a2be2;
     color: #FFF;
     transform: scale(1.05, 1.05);
     filter: drop-shadow(0 0 20px #ddd);
@@ -83,7 +83,7 @@
 }
 
 .passwordInput:is(:focus, :active) {
-    border-color: blueviolet;
+    border-color: #8a2be2;
     transition: .3s;
 }
 
@@ -94,7 +94,7 @@
     cursor: pointer;
     margin-left: -50px;
     margin-bottom: 18px;
-    color: blueviolet;
+    color: #8a2be2;
     font-size: 20px;
 }
 
