@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import './LandingPage.css';
 import { Link } from 'react-router-dom';
 import templateImg from '../../assets/images/template.png';
@@ -24,12 +24,11 @@ export default function LandingPage() {
     };
 
     useEffect(() => {
-        const links = document.querySelectorAll('.navbar a');
+        const links = document.querySelectorAll('.navbar a[href^="#"]');
         links.forEach((link) => {
             link.addEventListener('click', handleSmoothScroll);
         });
 
-        // Remova os ouvintes de evento quando o componente é desmontado
         return () => {
             links.forEach((link) => {
                 link.removeEventListener('click', handleSmoothScroll);
@@ -44,9 +43,6 @@ export default function LandingPage() {
                     <ul className='navItems'>
                         <div>
                             <p className='logo'>🚀</p>
-                            {/* <li className='logo'>
-                                <img src='./assets/background.png' alt='logo' />
-                            </li> */}
                         </div>
                         <div className='items'>
                             <li className='item'><a href="#about">Sobre</a></li>
