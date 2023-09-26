@@ -3,9 +3,13 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 250px;
-    background: #C490F5;
-
+    height: 220px;
+    background-image: url(../../assets//images/background.png);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
 }
 
 .Footer div {
@@ -23,22 +27,20 @@
 }
 
 .Footer li {
-    color: #000;
+    color: #2E2E2E;
     margin: 5px auto;
     transition: all .3s;
-}
-
-.Footer li:hover {
-    transition: all .3s;
-    color: #FFF;
+    font-size: 18px;
 }
 
 .Footer a {
     scroll-behavior: smooth;
     text-decoration: none;
-    color: #000;
+    transition: all .3s;
+    color: #2E2E2E;
 }
 
+.Footer li:hover,
 .Footer a:hover {
     transition: all .3s;
     color: #FFF;

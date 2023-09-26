@@ -38,8 +38,9 @@ export default function Footer() {
                 <ul>
                     <h3>Início</h3>
                     <li><a href='#home'>Home</a></li>
-                    <li><a href='#features'>Features</a></li>
-                    <li>Features</li>
+                    <li><a href='#about'>Sobre</a></li>
+                    <li><a href='#app'>Aplicativo</a></li>
+                    <li><a href='#features'>Destaques</a></li>
                 </ul>
                 <ul>
                     <h3>Sobre nós</h3>

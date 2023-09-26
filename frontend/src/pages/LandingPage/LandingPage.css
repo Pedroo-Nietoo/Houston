@@ -1,4 +1,4 @@
-.navItems {
+.LandingPage .navItems {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -9,27 +9,27 @@
     justify-content: space-between;
 }
 
-.logo {
+.LandingPage .logo {
     margin: 20px;
     height: 40px;
     width: 40px;
     font-size: 22px;
 }
 
-.items {
+.LandingPage .items {
     margin-right: 130px;
 }
 
-.item {
+.LandingPage .item {
     display: inline-block;
 }
 
-.account {
+.LandingPage .account {
     float: left;
     margin-left: -400px;
 }
 
-.item a {
+.LandingPage .item a {
     display: block;
     color: #FFF;
     text-align: center;
@@ -40,7 +40,7 @@
     transition: all .3s;
 }
 
-.account a {
+.LandingPage .account a {
     display: block;
     background-color: #FFF;
     color: #4B8DF0;
@@ -53,13 +53,13 @@
     cursor: pointer;
 }
 
-.item a:hover,
-.account a:hover {
+.LandingPage .item a:hover,
+.LandingPage .account a:hover {
     transition: all .3s;
     transform: scale(1.05);
 }
 
-header {
+.LandingPage header {
     width: 100%;
     height: 660px;
     background-image: url(../../assets/images/background.png);
@@ -69,24 +69,25 @@ header {
     background-size: cover;
 }
 
-.start {
+.LandingPage .start {
+    filter: drop-shadow(0 0 100px #333);
     margin-left: 200px;
     width: 400px;
     height: 250px;
 }
 
-.title {
+.LandingPage .title {
     font-size: 40px;
     margin-top: 120px;
     margin-bottom: 20px;
     color: #FFF;
 }
 
-.content {
+.LandingPage .content {
     color: #FFF;
 }
 
-.startButtons {
+.LandingPage .startButtons {
     padding: 12px 22px;
     margin-top: 15px;
     margin-right: 20px;
@@ -95,45 +96,45 @@ header {
     transition: all .3s;
 }
 
-.startButtons a {
+.LandingPage .startButtons a {
     text-decoration: none;
 }
 
-.access,
-.about {
+.LandingPage .access,
+.LandingPage .about {
     cursor: pointer;
     position: relative;
     z-index: 2;
 }
 
-.access {
+.LandingPage .access {
     background-color: #FFF;
 }
 
-.access a {
+.LandingPage .access a {
     color: #4B8DF0;
 }
 
-.about {
+.LandingPage .about {
     background-color: transparent;
 }
 
-.about a {
+.LandingPage .about a {
     color: #FFF;
 }
 
-.about:hover,
-.access:hover {
+.LandingPage .about:hover,
+.LandingPage .access:hover {
     transform: scale(1.05, 1.05);
     transition: all .3s;
 }
 
-.template {
+.LandingPage .template {
     margin-left: 50%;
     margin-top: -300px;
 }
 
-main {
+.LandingPage main {
     background-color: #FFF;
     height: 1200px;
     width: 100%;
@@ -142,13 +143,59 @@ main {
     align-items: center;
 }
 
-#home,
-#features,
-#feat {
+.LandingPage #home,
+.LandingPage #about,
+.LandingPage #features,
+.LandingPage #app,
+.LandingPage #contact {
     scroll-behavior: smooth;
 }
 
-#features {
+.LandingPage #about {
+    background-color: #FFF;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+}
+
+.LandingPage #about #purple-card {
+    padding-left: 200px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    height: 200px;
+}
+
+.LandingPage #about * {
+    color: #333;
+}
+
+.LandingPage #about h1,
+.LandingPage #about p {
+    filter: drop-shadow(0 0 50px #A351F0);
+}
+
+.LandingPage #about h1 {
+    margin-bottom: 20px;
+}
+
+.LandingPage #about p {
+    margin-right: 100px;
+}
+
+.LandingPage #logo {
+    margin-left: 70%;
+    z-index: 2;
+    width: 200px;
+}
+
+.LandingPage #app {}
+
+.LandingPage #features {
+    background-color: #FFF;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
